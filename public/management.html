@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaTruck - Gestión</title>
+    <link rel="stylesheet" href="/css/management.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <!-- Encabezado con el nombre del usuario y el botón de cerrar sesión -->
+    <header class="header">
+        <div class="user-info">
+            <i class="fas fa-user-circle"></i>
+            <span id="userName" class="user-name"></span> <!-- Aquí se mostrará el nombre del usuario -->
+            <button id="logoutButton" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sección de bienvenida -->
+    <section class="welcome-section" id="welcomeSection">
+        <div class="welcome-message">¡Bienvenido!</div>
+        <img src="/image/logosoderia.png" alt="Logo Gerbaldo" class="company-logo">
+    </section>
+
+    <!-- Botón para mostrar/ocultar el menú -->
+    <button id="toggleMenu" class="toggle-btn"><i class="fas fa-bars"></i></button>
+
+    <!-- Menú lateral -->
+    <nav id="miMenu" class="menu-lateral">
+        <a href="#" data-vista="clientes"><i class="fas fa-users"></i> Clientes</a>
+        <a href="#" data-vista="pedidos"><i class="fas fa-list"></i> Pedidos</a>
+        <a href="#" data-vista="repartos"><i class="fas fa-truck"></i> Repartos</a>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="content" id="contentBody">
+        <!-- Sección de Clientes -->
+        <div id="vistaClientes" class="section-container hidden">
+            <div class="table-title">
+                <h2>Listado de Clientes</h2>
+                <input class="buscador" type="text" id="filtroClientes" placeholder="Buscar cliente...">
+            </div>
+            <button onclick="abrirModalAgregarCliente()" class="boton-accion-agregar"><i class="fas fa-user-plus"></i></button>
+            <div class="table-container" id="clientesList"></div>
+            <div id="paginationClientes" class="pagination"></div>
+        </div>
+
+        <!-- Sección de Pedidos -->
+        <div id="vistaPedidos" class="section-container hidden">
+            <div class="table-title">
+                <h2>Listado de Pedidos</h2>
+                <input class="buscador" type="text" id="filtroPedidos" placeholder="Buscar pedido...">
+            </div>
+            <button onclick="abrirModalAgregarPedido()" class="boton-accion-agregar"><i class="fas fa-plus"></i></button>
+            <div class="table-container" id="pedidosList"></div>
+            <div id="paginationPedidos" class="pagination"></div>
+        </div>
+
+        <!-- Sección de Repartos -->
+        <div id="vistaRepartos" class="section-container hidden">
+            <div class="table-title">
+                <h2>Listado de Repartos</h2>
+            </div>
+            <div class="filtro-repartos-container">
+                <label for="filtroRepartos">Filtrar por fecha:</label>
+                <input type="date" id="filtroRepartos" name="filtroRepartos">
+                <button onclick="filtrarRepartosPorFecha()">Filtrar</button>
+            </div>
+            <div class="table-container" id="repartosList"></div>
+        </div>
+    </main>
+
+    <!-- Fondo oscuro cuando el menú está activo -->
+    <div id="fondoOscuro" class="fondo-oscuro"></div>
+
+    <!-- Modal para formularios -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal" onclick="cerrarModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Cargar script de gestión -->
+    <script src="/js/management.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+/* General */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #0099cc, #00cc99);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.welcome-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+.welcome-message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.company-logo {
+    width: 300px;
+    height: auto;
+}
+.hidden {
+    display: none;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.user-info i {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.logout-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.logout-btn:hover {
+    color: #f1f1f1;
+}
+
+.user-name {
+    margin-right: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Menú lateral */
+.menu-lateral {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #333;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+    overflow-x: hidden;
+    transition: width 0.3s ease;
+    padding-top: 60px;
+    z-index: 99;
+}
+
+.menu-lateral a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    transition: color 0.3s, padding-left 0.3s;
+}
+
+.menu-lateral a:hover {
+    color: #4CAF50;
+    padding-left: 35px;
+}
+
+.menu-lateral.abierto {
+    width: 200px;
+}
+
+/* Botón del menú */
+.toggle-btn {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    z-index: 100;
+}
+
+.toggle-btn.menu-abierto {
+    background-color: #2E7D32;
+}
+
+.toggle-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Contenido principal */
+.content {
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.content .table-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0099cc;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px 5px 0 0;
+    flex-wrap: wrap;
+}
+
+.buscador {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 300px;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.buscador:focus {
+    border-color: #0099cc;
+    outline: none;
+}
+
+/* Filtro para repartos */
+.filtro-repartos-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.filtro-repartos-container label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.filtro-repartos-container input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.filtro-repartos-container button {
+    background-color: #0099cc;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filtro-repartos-container button:hover {
+    background-color: #00cc99;
+}
+
+/* Tabla de clientes */
+.table-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Para hacer la tabla desplazable en pantallas pequeñas */
+}
+
+.customers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.customers-table th, .customers-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.customers-table th {
+    background-color: #0099cc;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.customers-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.customers-table tr:hover {
+    background-color: #e9f5fb;
+}
+
+.boton-accion {
+    background: none;
+    border: none;
+    color: #0099cc;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.boton-accion:hover {
+    color: #00cc99;
+}
+
+/* Botón de agregar cliente */
+.boton-accion-agregar {
+    margin: 15px 0;
+    background-color: #0099cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-accion-agregar:hover {
+    background-color: #00cc99;
+}
+
+/* Modales */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #f44336;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content form label {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.modal-content form input, 
+.modal-content form select {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.modal-content form input:focus, 
+.modal-content form select:focus {
+    border-color: #0099cc;
+    outline: none;
+}
+
+.modal-content form button {
+    background-color: #0099cc;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content form button:hover {
+    background-color: #00cc99;
+}
+
+/* Fondo oscuro para el menú */
+.fondo-oscuro {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+    transition: opacity 0.3s ease;
+}
+
+.fondo-oscuro.activo {
+    display: block;
+    opacity: 1;
+}
+
+/* Estilos de la paginación */
+.pagination {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.pagination-button {
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+
+.pagination-button:hover {
+    background-color: #ddd;
+}
+
+.pagination-button.active {
+    background-color: #0099cc;
+    color: white;
+    border: 1px solid #0099cc;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .user-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .content .table-title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .customers-table th, .customers-table td {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+
+    .modal-content {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .toggle-btn {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .logout-btn {
+        font-size: 0.9em;
+    }
+
+    .buscador {
+        width: 100%;
+        max-width: none;
+    }
+
+    .pagination-button {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+}
+
+/* Mejora del campo de fecha */
+input[type="date"] {
+    appearance: none; /* Elimina el estilo por defecto del navegador */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 250px;
+    color: #333;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+input[type="date"]:focus {
+    border-color: #0099cc;
+    box-shadow: 0px 4px 8px rgba(0, 153, 204, 0.3); /* Sombra al enfocarse */
+    outline: none;
+}
+
+/* Icono de calendario personalizado */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: #0099cc;
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* Mejora del botón de filtrar */
+.filtro-repartos-container button {
+    background-color: #0099cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filtro-repartos-container button:hover {
+    background-color: #00cc99;
+    box-shadow: 0px 4px 8px rgba(0, 153, 204, 0.3); /* Sombra al pasar el mouse */
+}
+
+/* Estilos para el select de estado */
+select.estado-en-proceso {
+    background-color: #f0ad4e; /* Naranja para En Proceso */
+    color: white;
+}
+
+select.estado-entregado {
+    background-color: #5cb85c; /* Verde para Entregado */
+    color: white;
+}
+
+select.estado-cancelado {
+    background-color: #d9534f; /* Rojo para Cancelado */
+    color: white;
+}
+
+/* Asegúrate de que los select tengan un estilo consistente */
+select {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
